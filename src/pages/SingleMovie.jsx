@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
 
 const SingleMovie = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [movie, setMovie] = useState(null);
 
@@ -13,6 +14,12 @@ const SingleMovie = () => {
       setMovie(resp.data.data);
     });
   }, []);
+
+  const goBack = (event) => {
+    event.preventDefault();
+    navigate(-1);
+  };
+
   return (
     <main>
       {movie && movie.image && (
@@ -42,6 +49,11 @@ const SingleMovie = () => {
                 </div>
               )}
             </section>
+            <div className="mt-4">
+              <a className="btn btn-outline-success" onClick={goBack}>
+                Indietro
+              </a>
+            </div>
           </section>
         </>
       )}
