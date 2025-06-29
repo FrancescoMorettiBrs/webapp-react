@@ -1,7 +1,29 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const Movies = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/movies").then((resp) => {
+      setMovies(resp.data.data);
+    });
+  }, []);
+
   return (
     <>
-      <h1>Movies</h1>
+      <main>
+        <section className="container py-5">
+          <h1 className="text-center">Movies</h1>
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+            {movies.map((curMovie) => (
+              <div key={curMovie.id} className="col">
+                <h4>{curMovie.title}</h4>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
     </>
   );
 };
