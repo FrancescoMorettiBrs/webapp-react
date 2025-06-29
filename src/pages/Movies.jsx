@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import MovieCard from "../components/MovieCard";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -17,8 +18,8 @@ const Movies = () => {
           <h1 className="text-center">Movies</h1>
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
             {movies.map((curMovie) => (
-              <div key={curMovie.id} className="col">
-                <h4>{curMovie.title}</h4>
+              <div key={curMovie.id} className="col p-4">
+                <MovieCard movie={curMovie}/>
               </div>
             ))}
           </div>
