@@ -5,13 +5,13 @@ import ReviewCard from "../components/ReviewCard";
 import RenderStars from "../components/RenederStars";
 
 const SingleMovie = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
 
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/movies/${id}`).then((resp) => {
+    axios.get(`http://localhost:3000/movies/${slug}`).then((resp) => {
       setMovie(resp.data.data);
     });
   }, []);

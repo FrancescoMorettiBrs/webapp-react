@@ -13,7 +13,7 @@ function App() {
           <Route element={<GuestLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/movies" element={<Movies />} />
-            <Route path="/movies/:id" element={<SingleMovie />} />
+            <Route path="/movies/:slug" element={<SingleMovie />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

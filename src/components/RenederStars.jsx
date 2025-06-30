@@ -1,6 +1,5 @@
 const RenderStars = ({ vote }) => {
   const roundedVote = Math.ceil(vote);
-  console.log(roundedVote);
 
   return (
     <>
