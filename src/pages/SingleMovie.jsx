@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
+import RenderStars from "../components/RenederStars";
 
 const SingleMovie = () => {
   const { id } = useParams();
@@ -30,10 +31,11 @@ const SingleMovie = () => {
       {movie && (
         <>
           <section className="container py-4 text-center">
-            <h1>
-              {movie.title} - {movie.director}
-            </h1>
-            <div>{movie.vote_avg}</div>
+            <h1>{movie.title} </h1>
+            <h3>{movie.director}</h3>
+            <div>
+              <RenderStars vote={movie.vote_avg} />
+            </div>
             <p>{movie.abstract}</p>
             <section>
               <h2>Recensioni</h2>
