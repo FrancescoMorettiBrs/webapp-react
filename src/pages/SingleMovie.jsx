@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios, { formToJSON } from "axios";
 import ReviewCard from "../components/ReviewCard";
 import RenderStars from "../components/RenederStars";
+import ReviewForm from "../components/ReviewForm";
 
 const SingleMovie = () => {
   const { slug } = useParams();
@@ -11,10 +12,21 @@ const SingleMovie = () => {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/movies/${slug}`).then((resp) => {
-      setMovie(resp.data.data);
-    });
+    getMovieDetails();
   }, []);
+
+  const getMovieDetails = () => {
+    axios
+      .get(`http://localhost:3000/movies/${slug}`)
+      .then((resp) => {
+        setMovie(resp.data.data);
+      })
+      .catch((err) => {
+        if (err.status === 404) {
+          navigate("/not-found");
+        }
+      });
+  };
 
   const goBack = (event) => {
     event.preventDefault();
@@ -57,8 +69,19 @@ const SingleMovie = () => {
               </a>
             </div>
           </section>
+          <section className="py-5 container">
+            <h2 className="text-center mb-4">Lascia una recensione!</h2>
+            <div className="row justify-content-center">
+              <div className="col-12 col-md-8 col-lg-6 col-xl-4">
+                <div className="card">
+                  <ReviewForm movie_id={movie.id} reloadReviews={getMovieDetails} />
+                </div>
+              </div>
+            </div>
+          </section>
         </>
       )}
+      <hr />
     </main>
   );
 };

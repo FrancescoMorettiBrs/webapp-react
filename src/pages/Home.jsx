@@ -21,11 +21,13 @@ const Home = () => {
         </div>
       </section>
       <section className="container py-5">
-        <h2 className="text-center">Dai un occhiata ai nostri Film</h2>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. In, necessitatibus. Amet sed alias, a voluptatem doloribus consequuntur dolor sunt ullam assumenda? Quibusdam praesentium quas
-          beatae quaerat temporibus rem provident at! Doloremque officiis, fugiat fuga possimus facilis nulla, quisquam autem iure veniam sit id voluptates ipsum soluta ut. Beatae mollitia eos
-          repellendus, reprehenderit quod fugiat quo incidunt fuga. Consequatur, facere nisi.
+        <h2 className="text-center">BENVENUTO NEL NOSTRO CATALOGO FILM</h2>
+        <p className="mt-4 mb-4">
+          Benvenuti nel nostro catalogo di film, uno spazio pensato per chi ama il cinema in tutte le sue forme. Qui troverete una selezione curata di titoli che spaziano dai grandi classici
+          intramontabili alle ultime uscite, passando per capolavori indipendenti e pellicole meno conosciute ma meritevoli di attenzione. Che siate appassionati di azione, commedie romantiche,
+          thriller, drammi intensi o film d'animazione per tutta la famiglia, il nostro catalogo offre proposte adatte a ogni gusto e occasione. Ogni scheda include informazioni dettagliate,
+          recensioni, valutazioni e suggerimenti per aiutarvi a scegliere il film perfetto per la vostra serata. Accendete il vostro schermo, preparate i popcorn e lasciatevi trasportare dalle storie,
+          dalle emozioni e dai personaggi che solo il grande cinema sa regalare. Buona visione!
         </p>
         <Link className="btn btn-success" to={"/movies"}>
           Vedi i nostri film
