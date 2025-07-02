@@ -10,6 +10,10 @@ const AppHeader = () => {
       title: "Movies",
       url: "/movies",
     },
+    {
+      title: "Crea Film",
+      url: "/movies/create"
+    }
   ];
 
   return (

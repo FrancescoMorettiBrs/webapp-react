@@ -68,6 +68,7 @@ const SingleMovie = () => {
                 Indietro
               </a>
             </div>
+            <hr className="mt-5" />
           </section>
           <section className="py-5 container">
             <h2 className="text-center mb-4">Lascia una recensione!</h2>
@@ -81,7 +82,6 @@ const SingleMovie = () => {
           </section>
         </>
       )}
-      <hr />
     </main>
   );
 };

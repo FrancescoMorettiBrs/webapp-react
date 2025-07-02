@@ -22,7 +22,6 @@ const ReviewForm = ({movie_id, reloadReviews}) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     axios.post(` http://localhost:3000/movies/${movie_id}/reviews`, formData).then((resp) => {
-      console.log(resp);
 
       setFormData(emptyReview);
       reloadReviews();
